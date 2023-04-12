@@ -128,7 +128,92 @@
       padding: 4px 16px;
       font-size: 16px;
     }
+   /* ストップウオッチ機能 */
+   .stopwatch-container {
+      display: flex;
+      text-align: center;
+      margin: 30px 0;
+    }
 
+    .stopwatch-setting {
+      font-size: 20px;
+      width: 500px;
+      padding: 30px 0;
+    }
+
+    .stopwatch-time {
+      width: 400px;
+      padding: 30px 0;
+      margin-left: 60px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .stopwatch-title {
+      margin-bottom: 16px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .button-start {
+      background-color: rgb(236, 76, 76);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .button-stop {
+      background-color: rgb(67, 156, 246);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .button-reset {
+      background-color: rgb(113, 113, 113);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .button-start:hover {
+      background-color: rgb(233, 119, 119);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .button-stop:hover {
+      background-color: rgb(134, 185, 235);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .button-reset:hover {
+      background-color: rgb(177, 177, 177);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,6 +247,21 @@
       </div>
     </div>
     <!-- カウントダウン機能 -->
+    <!-- ストップウオッチ機能 -->
+    <div class="stopwatch-container">
+      <div class="stopwatch-setting">
+        <p class="stopwatch-title">Stopwatch</p>
+        <div id="buttons">
+          <input id="start" class="button-start" type="button" value="start">
+          <input id="stop" class="button-stop" type="button" value="stop">
+          <input id="reset" class="button-reset" type="button" value="reset">
+        </div>
+      </div>
+      <div class="stopwatch-time" id="container">
+        <div id="stopwatch-time">00：00：00</div>
+      </div>  
+    </div>
+    <!-- ストップウオッチ機能 -->
   </div>
 
   <script>
@@ -219,6 +319,8 @@
     }
 
     countdownButton.addEventListener("click", countdown);
+
+    
   </script>
 </body>
 </html>
