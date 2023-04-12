@@ -320,7 +320,45 @@
 
     countdownButton.addEventListener("click", countdown);
 
-    
+    // ストップウオッチ機能
+    const startButton = document.getElementById("start");
+    const stopButton = document.getElementById("stop");
+    const resetButton = document.getElementById("reset");
+    const stopwatchTime = document.getElementById("stopwatch-time");
+
+    let startTime; 
+    let elapsedTime = 0;
+    let timerInterval;
+
+    function startTimer() {
+      startTime = Date.now() - elapsedTime; 
+      timerInterval = setInterval(function printTime() {
+        elapsedTime = Date.now() - startTime; 
+        let hour = Math.floor((elapsedTime / 1000 / 60 / 60) % 24);
+        let min = Math.floor((elapsedTime / 1000 / 60) % 60);
+        let sec = Math.floor((elapsedTime / 1000) % 60);
+
+        hour = String(hour).padStart(2, '0');
+        min = String(min).padStart(2, '0');
+        sec = String(sec).padStart(2, '0');
+
+        stopwatchTime.textContent = hour + "：" + min + "：" + sec;
+      }, 10);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+    }
+
+    function resetTimer() {
+      stopTimer();
+      elapsedTime = 0; 
+      stopwatchTime.textContent = "00：00：00"; 
+    }
+
+    startButton.addEventListener("click", startTimer);
+    stopButton.addEventListener("click", stopTimer);
+    resetButton.addEventListener("click", resetTimer);
   </script>
 </body>
 </html>
