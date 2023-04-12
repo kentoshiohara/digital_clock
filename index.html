@@ -193,6 +193,32 @@
     };
 
     setInterval(clock, 1000);
+
+    // カウントダウン機能
+    const countdownButton = document.getElementById("cd-button");
+    let countdownIntervalId;
+
+    function countdown() {
+      clearInterval(countdownIntervalId); 
+      const countdownDaysElement = document.getElementById("days");
+      const countdownHoursElement = document.getElementById("hours");
+      const datetimeElement = document.getElementById("datetime");
+      const datetime = new Date(datetimeElement.value).getTime();
+
+      if (isNaN(datetime)) {
+        countdownDaysElement.innerHTML = "　　";
+        return;
+      }
+
+      countdownIntervalId = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = datetime - now;
+        const days = Math.floor(distance / 1000 / 60 / 60 / 24);
+        countdownDaysElement.innerHTML = `${days + 1}`;
+      }, 1000);
+    }
+
+    countdownButton.addEventListener("click", countdown);
   </script>
 </body>
 </html>
