@@ -57,6 +57,78 @@
       font-size: 32px;
       font-weight: bold;
     }
+
+   /* カウントダウン機能 */
+    .countdown-container {
+      display: flex;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .countdown-setting {
+      font-size: 20px;
+      width: 500px;
+      padding: 30px 0;
+    }
+
+    .countdown-title {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .date {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 4px 8px;
+      font-size: 16px;
+    }
+
+    .button {
+      background-color: rgb(78, 78, 78);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .button:hover {
+      background-color: rgb(138, 138, 138);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .countdown {
+      width: 400px;
+      padding: 30px 0;
+      margin-left: 60px;
+      font-weight: bold;
+    }
+
+    .countdown p {
+      font-size: 32px;
+      letter-spacing: 0.1em;
+    }
+
+    .left {
+      color: red;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .timezone_select {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 4px 16px;
+      font-size: 16px;
+    }
+
   </style>
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +149,19 @@
       </div> 
     </div>
     <!-- 時計機能 -->
+    <!-- カウントダウン機能 -->
+    <div class="countdown-container">
+      <div class="countdown-setting">
+        <p class="countdown-title">Countdown</p>
+        <label for="datetime">Set a date：</label>
+        <input type="date" id="datetime" name="datetime" class="date">
+        <button id="cd-button" class="button">set</button>
+      </div>
+      <div class="countdown">
+        <p><span id="days" class="left"></span> days left</p>
+      </div>
+    </div>
+    <!-- カウントダウン機能 -->
   </div>
 
   <script>
